@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAZU ICE Dashboard Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section id="loading-screen">
+        <div class="loading-content">
+            <i class="fa-solid fa-cubes fa-bounce ice-icon"></i>
+            <div class="melting-text-container">
+                <h1 class="zazu-text" data-text="ZAZU ICE">ZAZU ICE</h1>
+            </div>
+            <p>Memuat pendingin...</p>
+        </div>
+    </section>
+
+
+    <section id="login-popup" class="hidden">
+        <canvas id="snow-canvas"></canvas>
+        
+        <div class="login-box">
+            <h2>Selamat Datang</h2>
+            <p>Silahkan masuk untuk mengakses dashboard.</p>
+            
+            <button id="google-login-btn" class="google-btn">
+                <i class="fa-brands fa-google"></i> Sign in with Google
+            </button>
+            
+            <div class="divider">atau</div>
+             <input type="email" placeholder="Email" class="input-field">
+            <input type="password" placeholder="Password" class="input-field">
+            <button id="dummy-login-btn" class="login-btn">Masuk</button>
+        </div>
+    </section>
+
+
+    <section id="dashboard-container" class="hidden">
+        <header class="dash-header">
+            <h1>ZAZU</h1>
+            <p>PT. Zazue Tirta Restya</p>
+        </header>
+
+        <div class="dash-content">
+            <div class="stats-grid">
+                <div class="card production">
+                    <h3>Total Produksi Hari Ini</h3>
+                    <p class="big-number" id="prod-num">0 Kg</p>
+                </div>
+                <div class="card sales">
+                    <h3>Total Penjualan Hari Ini</h3>
+                    <p class="big-number" id="sales-num">RP 0</p>
+                </div>
+            </div>
+
+            <div class="chart-container card">
+                <h2>Pergerakan Realtime: Produksi vs Penjualan</h2>
+                <canvas id="mainChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
