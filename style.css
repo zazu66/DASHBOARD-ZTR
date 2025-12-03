@@ -1,0 +1,183 @@
+/* Reset CSS Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    overflow: hidden; /* Mencegah scroll saat loading/login */
+    background-color: #f0f2f5;
+}
+
+/* Class Utility untuk menyembunyikan elemen */
+.hidden {
+    display: none !important;
+    opacity: 0;
+}
+
+/* --- BAGIAN 1: LOADING SCREEN STYLE --- */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000; /* Latar belakang gelap */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    color: white;
+    flex-direction: column;
+}
+
+.ice-icon {
+    font-size: 3rem;
+    color: #a6e7ff;
+    margin-bottom: 20px;
+}
+
+/* Animasi Teks Terisi Air (Melting Effect) */
+.melting-text-container {
+    position: relative;
+}
+
+.zazu-text {
+    font-size: 4rem;
+    font-weight: 900;
+    color: transparent; /* Teks transparan */
+    /* Membuat outline teks */
+    -webkit-text-stroke: 2px #a6e7ff; 
+    position: relative;
+}
+
+/* Ini adalah lapisan air yang naik */
+.zazu-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #a6e7ff; /* Warna air */
+    overflow: hidden;
+    border-bottom: 2px solid #a6e7ff;
+    /* Animasi air naik selama 10 detik */
+    animation: fillWater 10s linear forwards; 
+}
+
+@keyframes fillWater {
+    0% { height: 0%; }
+    100% { height: 100%; }
+}
+
+
+/* --- BAGIAN 2: LOGIN POPUP STYLE --- */
+#login-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Gradient dingin */
+    background: linear-gradient(to bottom, #1e3c72, #2a5298, #a6e7ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 0.5s ease;
+}
+
+/* Kanvas salju di belakang box login */
+#snow-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Agar klik tembus ke form login */
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.9); /* Putih transparan */
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+    z-index: 2001;
+    backdrop-filter: blur(5px);
+}
+
+.google-btn {
+    background-color: #db4437;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #2a5298;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.divider { margin: 15px 0; color: #666; font-size: 0.9rem;}
+
+
+/* --- BAGIAN 3: DASHBOARD STYLE --- */
+#dashboard-container {
+    padding: 2rem;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.dash-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1e3c72;
+}
+
+.dash-header h1 { font-size: 2.5rem; }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.card h3 { color: #666; font-size: 1rem; margin-bottom: 10px; }
+.big-number { font-size: 2rem; font-weight: bold; color: #2a5298; }
+
+.chart-container {
+    height: 400px;
+}
